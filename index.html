@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Kelontong 46 - Bahan Pokok Terlengkap</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Floating WhatsApp -->
+    <a href="#" class="whatsapp-float" id="whatsappFloat">
+        <i class="fab fa-whatsapp"></i>
+        <span>Chat</span>
+    </a>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo-container">
+                    <div class="logo-circle">
+                        <i class="fas fa-store-alt"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h2>Toko Kelontong</h2>
+                        <span class="logo-number">46</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-info">
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Randubango RT.11 RW.04 Kec. Mojosari Kab. Mojokerto</span>
+                </div>
+                <div class="tags">
+                    <span class="tag">🚚 Pelayanan Cepat</span>
+                    <span class="tag">⭐ 5 Rating</span>
+                    <span class="tag">⚡ Bahan Pokok</span>
+                </div>
+            </div>
+
+            <div class="nav-actions">
+                <a href="#" class="nav-link cart-link" id="cartLink">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+                <button id="adminBtn" class="admin-btn" title="Admin Panel">
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-crown"></i>
+                <span>#1 Bahan Pokok Kelurahan</span>
+            </div>
+            <h1 class="hero-title">
+                Toko Kelontong <span class="highlight">46</span><br>
+                <span class="subtitle">Bahan Pokok Terlengkap</span>
+            </h1>
+            <div class="hero-stats">
+                <div class="stat"><div class="stat-number">50+</div><div class="stat-label">Produk</div></div>
+                <div class="stat"><div class="stat-number">100+</div><div class="stat-label">Pelanggan</div></div>
+            </div>
+            <a href="#products" class="cta-btn primary">
+                <i class="fas fa-shopping-bag"></i> Lihat Produk
+            </a>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="products section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-icon">🛒</span> Daftar Bahan Pokok
+                </h2>
+                <p class="section-subtitle">Pilih kebutuhan harian dengan harga terbaik</p>
+            </div>
+            <div id="productsContainer" class="products-grid"></div>
+        </div>
+    </section>
+
+    <!-- ADMIN MODAL - FIXED -->
+    <div id="adminModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-cog"></i> Admin Panel Toko 46</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div id="adminPassword" class="password-section">
+                <div class="input-group">
+                    <input type="password" id="adminPass" placeholder="🔑 Masukkan Password">
+                    <button id="adminLoginBtn" class="btn btn-primary">Login</button>
+                </div>
+            </div>
+            <div id="adminPanel" class="admin-panel" style="display: none;">
+                <form id="addProductForm" class="admin-form">
+                    <div class="form-row">
+                        <input type="text" id="productName" placeholder="Nama Produk *" required>
+                        <input type="file" id="productImage" accept="image/*">
+                    </div>
+                    <div class="form-row">
+                        <input type="text" id="productDesc" placeholder="Deskripsi *" required>
+                        <input type="number" id="productPrice" placeholder="Harga (kosongkan jika tanya)">
+                    </div>
+                    <button type="submit" class="btn btn-success">➕ Tambah Produk</button>
+                </form>
+                <div class="products-list">
+                    <h4>Produk Aktif (<span id="productsCount">0</span>)</h4>
+                    <div id="productsListAdmin"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CART MODAL - FIXED -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2><i class="fas fa-shopping-cart"></i> Keranjang Belanja</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div id="cartItems" class="cart-items"></div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <h3>Total: <span id="cartTotal">Rp 0</span></h3>
+                </div>
+                <div class="checkout-form">
+                    <input type="text" id="customerName" placeholder="👤 Nama Lengkap *" required>
+                    <div class="form-row">
+                        <input type="tel" id="customerPhone" placeholder="📱 No. WhatsApp *" required>
+                        <input type="text" id="customerAddress" placeholder="📍 Alamat (opsional)">
+                    </div>
+                    <button id="checkoutBtn" class="btn btn-checkout">
+                        <i class="fab fa-whatsapp"></i> 📱 Kirim Pesanan WA
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUCCESS MODAL -->
+    <div id="successModal" class="modal success-modal">
+        <div class="modal-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>✅ Pesanan Berhasil!</h2>
+            <p>Pesanan sudah terkirim ke WhatsApp penjual.<br>Silakan tunggu konfirmasi!</p>
+            <div class="success-actions">
+                <button id="continueShopping" class="btn btn-success">🛒 Lanjut Belanja</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
