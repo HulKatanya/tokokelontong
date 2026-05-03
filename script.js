@@ -1,5 +1,5 @@
 // ========================================
-// TOKO KELONTO NG 46 - SCRIPT LENGKAP
+// TOKO KELONTONG 46 - SCRIPT LENGKAP
 // ========================================
 
 // Data produk lengkap
@@ -275,7 +275,7 @@ function handleCheckout() {
     }
     
     // Buat pesan WA
-    let message = `🛒 *PESANAN BARU - TOKO KELONTO NG 46*\n\n`;
+    let message = `🛒 *PESANAN BARU - TOKO KELONTONG 46*\n\n`;
     message += `👤 Nama: ${name}\n`;
     message += `📱 WA: ${phone}\n`;
     message += `📍 Alamat: ${address || 'Ambil langsung'}\n\n`;
